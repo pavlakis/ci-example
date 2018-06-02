@@ -83,5 +83,8 @@ e.g.
 docker-compose -f docker-web.yml up -d
 ```
 
+In the current example, the improvement of not setting up the DB containers on two of the steps results in the following:
 
+
+![alt text](docs/images/bitbucket-pipeline-selected-services.png "Pipeline with selected services screenshot")
 
