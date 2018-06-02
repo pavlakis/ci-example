@@ -72,18 +72,17 @@ Example of running the above default pipeline:
 
 ### Optimisations
 
-We are already pulling a pre-built image with PHP/Apache/Composer with an apache configuration that points to `/var/www/html/web`.
-This of course is much faster than doing building our images on each step.
+We are already pulling a pre-built image with PHP/Apache/Composer with an Apache vhost configuration that points to `/var/www/html/web`.
+This of course is much faster than building our images on each step using a `Dockerfile`.
 
-To run it even faster, we can modify the tests which not require the use of a database, by loading `docker-compose` with only the services we need to use. (this change is done on the final version)
-
+To run it even faster, we can modify the tests which do not require the use of a database, by loading `docker-compose` with only the services we need to use. 
 e.g.
 
 ```
 docker-compose -f docker-web.yml up -d
 ```
 
-In the current example, the improvement of not setting up the DB containers on two of the steps results in the following:
+In the current example, the improvement of not running the DB containers on two of the steps results in the following:
 
 
 ![alt text](docs/images/bitbucket-pipeline-selected-services.png "Pipeline with selected services screenshot")
