@@ -1,10 +1,11 @@
 # CI example scripts
 
-Example scripts for running CI pipelines in a Docker-in-Docker environment.
+This project aims to give a starting point to anyone interested on getting started with CI Pipelines.
 
-All examples given are for a PHP project.
+A very basic PHP project has been created where some of these examples will run either using Docker-In-Docker or in Bitbucket pipelines.
 
-Scripts for:
+
+The available scripts can be used to run:
 
 * Unit tests
 * Integration tests
@@ -12,7 +13,7 @@ Scripts for:
 * Smoke tests
 
 
-It includes examples on:
+It also includes examples on:
 
 * Load DB schema
 * Run DB migrations
@@ -31,6 +32,8 @@ cd /var/www/html
 ```
 
 ## Bitbucket Pipelines
+
+The following `bitbucket-pipelines.yml` example file, will run each tests as a separate pipeline step.
 
 ```yml
 
