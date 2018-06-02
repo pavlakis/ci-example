@@ -64,3 +64,24 @@ pipelines:
 
 
 ```
+
+Example of running the above default pipeline:
+
+
+![alt text](docs/images/bitbucket-pipeline-default.png "Default pipeline screenshot")
+
+### Optimisations
+
+We are already pulling a pre-built image with PHP/Apache/Composer with an apache configuration that points to `/var/www/html/web`.
+This of course is much faster than doing building our images on each step.
+
+To run it even faster, we can modify the tests which not require the use of a database, by loading `docker-compose` with only the services we need to use. (this change is done on the final version)
+
+e.g.
+
+```
+docker-compose -f docker-web.yml up -d
+```
+
+
+
