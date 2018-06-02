@@ -1,0 +1,34 @@
+{
+  "name": "pavlakis/ci",
+  "description": "Examples in running CI pipelines through Docker-in-Docker and Bitbucket pipelines.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Antonis Pavlakis",
+      "email": "antonis@pavlakis.info"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pavlakis\\Ci\\": "src/"
+    }
+  },
+  "require": {
+    "hirak/prestissimo": "^0.3.7"
+  },
+  "config": {
+    "bin-dir": "bin",
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2",
+    "brunty/cigar": "^1.10",
+    "behat/behat": "^3.4",
+    "behat/mink": "^1.7",
+    "behat/mink-extension": "^2.3",
+    "behat/mink-goutte-driver": "^1.2"
+  }
+}

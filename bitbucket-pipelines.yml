@@ -1,0 +1,30 @@
+image: docker:stable
+
+options:
+  docker: true
+
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: Unit Tests
+            script:
+              - ci/scripts/install-docker-compose.sh
+              - ci/scripts/step-run-unit-tests.sh
+#        - step:
+#            name: Integration Tests
+#            script:
+#              - ci/scripts/install-docker-compose.sh
+#              - ci/scripts/prepare-db.sh
+#              - ci/scripts/step-run-integration-tests.sh
+        - step:
+            name: Acceptance Tests
+            script:
+              - ci/scripts/install-docker-compose.sh
+              - ci/scripts/step-run-acceptance-tests.sh app
+        - step:
+            name: Smoke Tests
+            script:
+              - ci/scripts/install-docker-compose.sh
+              - ci/scripts/step-run-smoke-tests.sh

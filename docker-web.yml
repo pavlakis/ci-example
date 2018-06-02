@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+    my-app-web:
+        image: pavlakis/php-apache-common:7.2.3-v2
+        restart: always
+        environment:
+            APP_ENVIRONMENT: 'ci'
+            DB_HOST: 'my-app-db'
+            DB_NAME: 'my_app_db'
+            DB_USER: 'my_user'
+            DB_PASSWORD: 'User123'
+        volumes:
+            - ./:/var/www/html

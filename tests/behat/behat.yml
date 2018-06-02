@@ -1,0 +1,12 @@
+default:
+    suites:
+        app:
+            paths:    [ "%paths.base%/features/app" ]
+            contexts:
+                - FeatureContext
+    extensions:
+        Behat\MinkExtension:
+            base_url:  'http://my-app-web/'
+            sessions:
+                default:
+                  goutte: ~

@@ -1,0 +1,11 @@
+[
+  {
+    "url": "http://my-app-web/",
+    "status": 200,
+    "content-type": "text/html"
+  },
+  {
+    "url": "http://my-app-web/oops",
+    "status": 404
+  }
+]

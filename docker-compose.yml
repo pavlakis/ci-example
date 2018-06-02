@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+
+    my-app-web:
+        image: pavlakis/php-apache-common:7.2.3-v2
+        restart: always
+        links:
+            - my-app-db:mysql
+        environment:
+            APP_ENVIRONMENT: 'ci'
+            DB_HOST: 'my-app-db'
+            DB_NAME: 'my_app_db'
+            DB_USER: 'my_user'
+            DB_PASSWORD: 'User123'
+        volumes:
+            - ./:/var/www/html
+
+    my-app-db:
+        image: mysql:5.5.57
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 'Admin123'
+            MYSQL_DATABASE: 'my_app_db'
+            MYSQL_USER: 'my_user'
+            MYSQL_PASSWORD: 'User123'
+        working_dir: /var/www/html
+        volumes:
+            - ./:/var/www/html
+            - ./ci/docker/.data/dbtest:/var/lib/mysql
